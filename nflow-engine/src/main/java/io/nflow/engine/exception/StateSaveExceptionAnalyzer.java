@@ -48,7 +48,7 @@ public class StateSaveExceptionAnalyzer {
     } catch (Exception analyzerException) {
       logger.error("Failed to analyze exception, using default handling.", analyzerException);
     }
-    return handling;
+    return getDefaultHandling();
   }
 
   /**
@@ -61,6 +61,13 @@ public class StateSaveExceptionAnalyzer {
    * @return How the exception should be handled.
    */
   protected StateSaveExceptionHandling analyze(Exception e, int saveRetryCount) {
-    return handling;
+    return getDefaultHandling();
   }
+
+  /**
+   * Get the default exception handling for an exception.
+   *
+   * @return How the exception should be handled.
+   */
+  protected final StateSaveExceptionHandling getDefaultHandling() { return handling; }
 }

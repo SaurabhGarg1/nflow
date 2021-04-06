@@ -32,7 +32,7 @@ public class DispatcherExceptionAnalyzer {
     } catch (Exception analyzerException) {
       logger.error("Failed to analyze exception, using default handling.", analyzerException);
     }
-    return getDefultHandling(e);
+    return getDefaultHandling(e);
   }
 
   /**
@@ -43,10 +43,17 @@ public class DispatcherExceptionAnalyzer {
    * @return How the exception should be handled.
    */
   protected DispatcherExceptionHandling analyze(Exception e) {
-    return getDefultHandling(e);
+    return getDefaultHandling(e);
   }
 
-  private DispatcherExceptionHandling getDefultHandling(Exception e) {
+  /**
+   * Get the default exception handling for an exception.
+   *
+   * @param e
+   *          The exception to be analyzed.
+   * @return How the exception should be handled.
+   */
+  protected final DispatcherExceptionHandling getDefaultHandling(Exception e) {
     Builder builder = new DispatcherExceptionHandling.Builder();
     if (e instanceof PollingRaceConditionException) {
       builder.setLogLevel(Level.DEBUG).setLogStackTrace(false).setRandomizeSleep(true);

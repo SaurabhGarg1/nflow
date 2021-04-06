@@ -89,6 +89,11 @@
       <email>chen.jing@nitor.fi</email>
       <organization>Nitor Creations</organization>
     </developer>
+    <developer>
+      <name>Nils Stenholm</name>
+      <email>nils.stenholm@nitor.com</email>
+      <organization>Nitor Creations</organization>
+    </developer>
   </developers>
   <modules>
     <module>nflow-engine</module>
